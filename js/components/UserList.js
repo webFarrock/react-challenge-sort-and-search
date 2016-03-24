@@ -4,7 +4,10 @@ import UserItem from './UserItem';
 export default class UserList extends Component {
     constructor(props) {
         super(props);
+    }
 
+    selectUser(id){
+        this.props.selectUser(id);
     }
 
     render() {
@@ -21,7 +24,7 @@ export default class UserList extends Component {
                 </thead>
                 <tbody>
                     {this.props.usersData.map((item) => {
-                        return (<UserItem key={item.id} user={item} />)
+                        return (<UserItem key={item.id} user={item} selectUser={this.selectUser.bind(this)} />)
                     })}
                 </tbody>
             </table>

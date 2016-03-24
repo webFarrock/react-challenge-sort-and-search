@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 export default class UserItem extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
-        
+    }
+
+    selectUser(){
+        this.props.selectUser(this.props.user.id);
     }
 
     render() {
         return (
-            <tr>
+            <tr onClick={this.selectUser.bind(this)}>
                 <td>
                     <img src={`images/${this.props.user.image}.svg`} className="user-image"/>
                 </td>
