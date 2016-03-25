@@ -12,7 +12,7 @@ export default class User extends Component {
     }
 
     render() {
-        let elUserActive = 'Nothig finded';
+        let elUserActive = '';
 
         if(false !== this.props.curUserId){
             console.log(this.props.curUserId);

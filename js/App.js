@@ -72,9 +72,16 @@ export default class App extends Component {
     searchByName(val){
         console.log(val);
         
-        let usersData = this.state.usersDataRaw.filter((item) => {if(-1 !== item.name.indexOf(val)) return false; });
+        
+        let usersData = this.state.usersDataRaw;
+
+        if(val){
+            usersData = usersData.filter((item) => {if(-1 !== item.name.toLowerCase().indexOf(val.toLowerCase())) return true; });
+        }
 
         const curUserId = usersData[0] ? usersData[0].id : false;
+        
+
         this.setState({
             searchByNameValue: val,
             usersData: usersData,
